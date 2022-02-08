@@ -46,11 +46,13 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
+    @Transactional
     public void addTeam(TeamDTO team) {
         teamRepository.save(teamFactory.toEntity(team));
     }
 
     @Override
+    @Transactional
     public void updateTeam(TeamDTO team) {
 
         if(teamRepository.findById(team.getId()).isPresent()) {
@@ -61,6 +63,7 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
+    @Transactional
     public void deleteTeamById(Long teamId) {
         teamRepository.deleteById(teamId);
     }
