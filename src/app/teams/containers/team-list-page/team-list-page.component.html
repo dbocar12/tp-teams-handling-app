@@ -1,0 +1,46 @@
+<!--<mat-card class="team-card-box bg-primary" *ngFor="let team of teams;">
+  <mat-card-content >
+    <button mat-raised-button color="primary" (click)="onSelectTeam(team)">
+      {{ team.name }}
+    </button>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button><mat-icon fxFlex="10%">mode_edit</mat-icon></button>
+    <button mat-button><mat-icon fxFlex="10%">delete</mat-icon></button>
+  </mat-card-actions>
+</mat-card>-->
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let team of teams;">
+        <td>{{ team.id }}</td>
+        <td>{{ team.name }}</td>
+        <td>
+          <button mat-button class="btn-info" (click)="onSelectTeam(team)">
+            <mat-icon fxFlex="10%">launch</mat-icon>
+          </button>
+          <span style="margin-right: 10px"></span>
+          <button mat-button class="btn-warning">
+            <mat-icon fxFlex="10%">mode_edit</mat-icon>
+          </button>
+          <span style="margin-right: 10px"></span>
+          <button mat-button class="btn-danger">
+            <mat-icon fxFlex="10%">delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <button mat-button class="btn-secondary" (click)="onAddTeam()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>

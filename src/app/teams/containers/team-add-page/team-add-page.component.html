@@ -1,0 +1,38 @@
+<mat-card>
+  <form [formGroup]="addTeamForm" (ngSubmit)="createTeam()" novalidate>
+    <mat-card-title>Creation de Team</mat-card-title>
+    <mat-card-content>
+      <div class="form-group row">
+        <mat-form-field appearance="fill" class="mb-2 mt-2 input-group-text">
+          <input matInput formControlName="name" placeholder="Enter team name">
+          <mat-error *ngIf="addTeamForm.get('name')!.invalid">
+            le champs Name est recquis
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group row">
+        <mat-form-field appearance="fill" class="mb-2 mt-2 input-group-text">
+          <input matInput formControlName="slogan" placeholder="Enter team slogan">
+          <mat-error *ngIf="addTeamForm.get('slogan')!.invalid">
+            le champs Slogan est recquis
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <button type="submit"
+                mat-raised-button
+                class="btn btn-primary mb-2 mt-2">
+          Ajouter
+        </button>
+
+        <button mat-raised-button
+                class="btn btn-danger ml-2 mt-2"
+                (click)="cancel()">
+          Annuler
+        </button>
+      </div>
+    </mat-card-content>
+  </form>
+</mat-card>

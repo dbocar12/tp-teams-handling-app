@@ -1,0 +1,29 @@
+<!--<div class="" *ngIf="team">
+  <span>Name : {{team.name}}</span>
+  <span> / slogan : {{team.slogan}}</span>
+  <button mat-raised-button color="primary" (click)="redirect()">Back </button>
+</div>-->
+<div class="card my-5">
+  <div class="card-body">
+    <button mat-raised-button color="primary" (click)="redirect()" class="btn-danger">
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Slogan</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngIf="team">
+        <td>{{ team.id }}</td>
+        <td>{{ team.name }}</td>
+        <td>{{ team.slogan }}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

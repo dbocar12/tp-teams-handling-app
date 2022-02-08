@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  backendPoint: 'http://universite-paris-nord/api'
 };
