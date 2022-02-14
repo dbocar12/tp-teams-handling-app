@@ -2,7 +2,9 @@ package fr.sorbonne.paris.nord.university.api.service;
 
 import fr.sorbonne.paris.nord.university.api.dto.TeamDTO;
 import fr.sorbonne.paris.nord.university.api.entity.TeamEntity;
+import fr.sorbonne.paris.nord.university.api.factory.PlayerFactory;
 import fr.sorbonne.paris.nord.university.api.factory.TeamFactory;
+import fr.sorbonne.paris.nord.university.api.repository.PlayerRepository;
 import fr.sorbonne.paris.nord.university.api.repository.TeamRepository;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +19,12 @@ import java.util.stream.Collectors;
 public class TeamServiceImpl implements TeamService {
 
     private final TeamRepository teamRepository;
+    private final PlayerRepository playerRepository;
 
     @Autowired
-    public TeamServiceImpl(TeamRepository teamRepository) {
+    public TeamServiceImpl(TeamRepository teamRepository,PlayerRepository playerRepository) {
         this.teamRepository = teamRepository;
+        this.playerRepository = playerRepository;
     }
 
 

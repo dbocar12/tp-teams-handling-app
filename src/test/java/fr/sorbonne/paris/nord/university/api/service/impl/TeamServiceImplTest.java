@@ -1,8 +1,12 @@
 package fr.sorbonne.paris.nord.university.api.service.impl;
 
+import fr.sorbonne.paris.nord.university.api.dto.PlayerDTO;
 import fr.sorbonne.paris.nord.university.api.dto.TeamDTO;
+import fr.sorbonne.paris.nord.university.api.entity.PlayerEntity;
 import fr.sorbonne.paris.nord.university.api.entity.TeamEntity;
+import fr.sorbonne.paris.nord.university.api.factory.PlayerFactory;
 import fr.sorbonne.paris.nord.university.api.factory.TeamFactory;
+import fr.sorbonne.paris.nord.university.api.repository.PlayerRepository;
 import fr.sorbonne.paris.nord.university.api.repository.TeamRepository;
 import fr.sorbonne.paris.nord.university.api.service.TeamServiceImpl;
 import org.assertj.core.api.Assertions;
@@ -15,6 +19,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -25,8 +30,15 @@ class TeamServiceImplTest {
 
     @Mock
     private TeamRepository teamRepository;
+
+    @Mock
+    private PlayerRepository playerRepository;
+
     @Mock
     private TeamFactory teamFactory;
+
+    @Mock
+    private PlayerFactory playerFactory;
 
     @InjectMocks
     private TeamServiceImpl teamService;
@@ -36,7 +48,10 @@ class TeamServiceImplTest {
         //GIVEN
         final ArrayList<TeamEntity> teamList = new ArrayList<>();
         teamList.add(new TeamEntity());
-        when(teamRepository.findAll()).thenReturn(teamList);
+        List<TeamEntity> all = teamRepository.findAll();
+
+        when(all).thenReturn(teamList);
+        teamFactory.setPlayerFactory(playerFactory);
         doCallRealMethod().when(teamFactory).toDTO(any());
         //WHEN
         final List<TeamDTO> allTeams = teamService.getAllTeams();
@@ -58,13 +73,18 @@ class TeamServiceImplTest {
     @Test
     void addTeam() {
         //GIVEN
+        teamFactory.setPlayerFactory(playerFactory);
+
         final TeamDTO teamDTO = new TeamDTO();
+
         final TeamEntity teamEntity = new TeamEntity();
 
         when(teamFactory.toEntity(any())).thenReturn(teamEntity);
         when(teamRepository.save(any(TeamEntity.class))).thenAnswer(i -> i.getArgument(0));
         //WHEN
+
         teamService.addTeam(teamDTO);
+
 
         //THEN
         verify(teamFactory).toEntity(teamDTO);
