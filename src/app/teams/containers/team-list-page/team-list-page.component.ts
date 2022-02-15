@@ -29,4 +29,11 @@ export class TeamListPageComponent implements OnInit {
   onAddTeam() {
     this.router.navigate([`teams/add`]);
   }
+
+  deleteTeam(id: number | any): void {
+    this.teamService.deletePost(id);
+    this.router.navigate([`team/`]);
+
+
+  }
 }

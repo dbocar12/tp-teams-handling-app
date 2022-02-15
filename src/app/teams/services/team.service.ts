@@ -35,4 +35,11 @@ export class TeamService {
     return this.subject.asObservable();
   }
 
+  public deletePost(id: number): void {
+    let endPoints = "/" + id;
+    this.http.delete(this.teamsURL + endPoints).subscribe(data => {
+      console.log(data);
+    });
+  }
+
 }

@@ -11,10 +11,11 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {TeamAddPageComponent} from './containers/team-add-page/team-add-page.component';
+import {TeamEditPageComponent} from './containers/team-edit-page/team-edit-page.component';
 
 
 @NgModule({
-  declarations: [TeamListPageComponent, TeamDetailPageComponent, TeamAddPageComponent
+  declarations: [TeamListPageComponent, TeamDetailPageComponent, TeamAddPageComponent, TeamEditPageComponent
   ],
   imports: [
     CommonModule,
