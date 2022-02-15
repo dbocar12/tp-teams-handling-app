@@ -2,7 +2,9 @@ package fr.sorbonne.paris.nord.university.api.factory;
 
 import fr.sorbonne.paris.nord.university.api.dto.PlayerDTO;
 import fr.sorbonne.paris.nord.university.api.entity.PlayerEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PlayerFactory implements EntityFactory<PlayerEntity, PlayerDTO>{
     @Override
     public PlayerDTO toDTO(PlayerEntity entity) {

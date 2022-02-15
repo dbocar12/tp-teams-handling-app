@@ -4,11 +4,13 @@ import fr.sorbonne.paris.nord.university.api.dto.PlayerDTO;
 import fr.sorbonne.paris.nord.university.api.dto.TeamDTO;
 import fr.sorbonne.paris.nord.university.api.entity.PlayerEntity;
 import fr.sorbonne.paris.nord.university.api.entity.TeamEntity;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class TeamFactory implements EntityFactory<TeamEntity, TeamDTO> {
 
     private PlayerFactory playerFactory;
@@ -23,11 +25,12 @@ public class TeamFactory implements EntityFactory<TeamEntity, TeamDTO> {
         teamDTO.setId(entity.getId());
         teamDTO.setName(entity.getName());
         teamDTO.setSlogan(entity.getSlogan());
-        List<PlayerEntity> playersEntity = entity.getPlayers();
 
+        List<PlayerEntity> playersEntity = entity.getPlayers();
         List<PlayerDTO> playersDTO = playersEntity.stream()
                     .map(playerFactory::toDTO)
                     .collect(Collectors.toList());
+
 
         teamDTO.setPlayers(playersDTO);
         return teamDTO;

@@ -2,11 +2,9 @@ package fr.sorbonne.paris.nord.university.api.service;
 
 import fr.sorbonne.paris.nord.university.api.dto.TeamDTO;
 import fr.sorbonne.paris.nord.university.api.entity.TeamEntity;
-import fr.sorbonne.paris.nord.university.api.factory.PlayerFactory;
 import fr.sorbonne.paris.nord.university.api.factory.TeamFactory;
 import fr.sorbonne.paris.nord.university.api.repository.PlayerRepository;
 import fr.sorbonne.paris.nord.university.api.repository.TeamRepository;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

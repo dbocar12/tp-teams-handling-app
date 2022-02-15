@@ -10,6 +10,5 @@ CREATE TABLE Player (
                         number varchar(2) DEFAULT NULL,
                         position varchar(100) DEFAULT NULL,
                         team_id bigint(20) NOT NULL,
-                        PRIMARY KEY (id),
                         CONSTRAINT player_ibfk_1 FOREIGN KEY (team_id) REFERENCES team (id)
 )

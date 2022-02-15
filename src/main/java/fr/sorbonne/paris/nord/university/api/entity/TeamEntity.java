@@ -3,6 +3,7 @@ package fr.sorbonne.paris.nord.university.api.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -18,6 +19,6 @@ public class TeamEntity {
     private String slogan;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "team")
-    private List<PlayerEntity> players;
+    private List<PlayerEntity> players = new ArrayList<>();
 
 }

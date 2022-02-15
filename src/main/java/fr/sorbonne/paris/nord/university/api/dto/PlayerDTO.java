@@ -8,4 +8,5 @@ public class PlayerDTO {
     private String name;
     private String number;
     private String position;
+
 }

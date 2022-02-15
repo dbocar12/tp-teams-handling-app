@@ -9,3 +9,4 @@ insert into Player (id, name, number, position,team_id) values(2,'Karim Benzema'
 insert into Player (id, name, number, position,team_id) values(3,'Gerald Pique','3','Defense',3);
 insert into Player (id, name, number, position,team_id) values(4,'Manuel Neuer','1','Goalkeeper',4);
 insert into Player (id, name, number, position,team_id) values(5,'Cristiano Ronaldo','7','Forward',5);
+insert into Player (id, name, number, position,team_id) values(6,'Makerem Ben Cheikh','10','Forward',2);
